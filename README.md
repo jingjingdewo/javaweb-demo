@@ -11,3 +11,15 @@
 3.在mysql中create名为demo的数据库，导入demo.sql文件  
 
 4.启动tomact，在浏览器中输入http://localhost:8080/Demo1, 即可进入登录页面，用户名:admin,密码:admin  
+
+登录界面效果图：  
+![login](https://github.com/jingjingdewo/javaweb-demo/blob/master/LoginPage.png?raw=true)
+
+用户管理界面效果图：  
+![usermanage](https://github.com/jingjingdewo/javaweb-demo/blob/master/UserManage.png?raw=true)
+
+图片有一丢丢大，有意向的朋友耐心等待30s左右  
+
+如有问题可发邮箱：710564610@qq.com 或者加QQ：710564610(备注-javaweb Demo咨询)
+
+
