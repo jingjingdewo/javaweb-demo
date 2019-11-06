@@ -52,10 +52,9 @@ public class DBOperator {
 		String username = "";
 		String pass = "";
 		String url = ""; 
-		username = p.getProperty("name_demo");
-		pass = p.getProperty("pass_demo");
-		String url1 = "url_demo";
-		url = p.getProperty(url1);
+		username = p.getProperty("name_"+use_what);
+		pass = p.getProperty("pass_"+use_what);
+		url = p.getProperty("url_"+use_what);
 		con = DriverManager.getConnection(url,username, pass);
 		
 		if (con != null) {
