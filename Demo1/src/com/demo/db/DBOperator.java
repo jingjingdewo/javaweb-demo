@@ -29,7 +29,7 @@ public class DBOperator {
 	private java.sql.PreparedStatement ps = null;
 	private java.sql.ResultSet rs = null;
 	private Connection con = null;
-	private boolean showSql = true; // ÊÇ·ñÏÔÊ¾SQLÓï¾ä
+	private boolean showSql = true; // æ˜¯å¦æ˜¾ç¤ºSQLè¯­å¥
 	 
 	private java.sql.CallableStatement cst = null;
  
@@ -38,7 +38,7 @@ public class DBOperator {
 	}
 
 	/**
-	 * ³õÊ¼»¯Á´½Ó
+	 * åˆå§‹åŒ–é“¾æ¥
 	 * 
 	 * @throws Exception
 	 */
@@ -52,10 +52,9 @@ public class DBOperator {
 		String username = "";
 		String pass = "";
 		String url = ""; 
-		username = p.getProperty("name_demo");
-		pass = p.getProperty("pass_demo");
-		String url1 = "url_demo";
-		url = p.getProperty(url1);
+		username = p.getProperty("name_"+use_what);
+		pass = p.getProperty("pass_"+use_what);
+		url = p.getProperty("url_"+use_what);
 		con = DriverManager.getConnection(url,username, pass);
 		
 		if (con != null) {
@@ -64,10 +63,10 @@ public class DBOperator {
 	}
 
 	/**
-	 * ¸ù¾İSQLÓï¾äµÃµ½½á¹û¼¯ResultSet
+	 * æ ¹æ®SQLè¯­å¥å¾—åˆ°ç»“æœé›†ResultSet
 	 * 
 	 * @param sql
-	 *            ²éÑ¯Óï¾ä
+	 *            æŸ¥è¯¢è¯­å¥
 	 * @return
 	 * @throws Exception
 	 */
@@ -76,12 +75,12 @@ public class DBOperator {
 	}
 
 	/**
-	 * ¸ù¾İSQLÓï¾ä¼°Ìõ¼ş²ÎÊıµÃµ½½á¹û¼¯ResultSet
+	 * æ ¹æ®SQLè¯­å¥åŠæ¡ä»¶å‚æ•°å¾—åˆ°ç»“æœé›†ResultSet
 	 * 
 	 * @param sql
-	 *            ²éÑ¯Óï¾ä
+	 *            æŸ¥è¯¢è¯­å¥
 	 * @param params
-	 *            Ìõ¼ş²ÎÊı
+	 *            æ¡ä»¶å‚æ•°
 	 * @return
 	 * @throws Exception
 	 */
@@ -107,7 +106,7 @@ public class DBOperator {
 		if (params != null) {
 			psSet(params);
 		}
-		ps.setQueryTimeout(200);//²éÑ¯³¬Ê±
+		ps.setQueryTimeout(200);//æŸ¥è¯¢è¶…æ—¶
 		rs = ps.executeQuery();
 		return rs;
 	}
@@ -144,12 +143,12 @@ public class DBOperator {
 	}
 
 	/**
-	 * ¸ù¾İÌõ¼ş¶ÔÊı¾İ½øĞĞinsert¡¢update¡¢delete²Ù×÷
+	 * æ ¹æ®æ¡ä»¶å¯¹æ•°æ®è¿›è¡Œinsertã€updateã€deleteæ“ä½œ
 	 * 
 	 * @param sql
-	 *            ²Ù×÷Óï¾ä
+	 *            æ“ä½œè¯­å¥
 	 * @param params
-	 *            ²Ù×÷Ìõ¼ş
+	 *            æ“ä½œæ¡ä»¶
 	 * @return
 	 * @throws Exception
 	 */
@@ -188,7 +187,7 @@ public class DBOperator {
 			if (params != null) {
 				for (Object[] obj : params) {
 					i++;
-					p += "²ÎÊı "+ i + ":(";
+					p += "å‚æ•° "+ i + ":(";
 					for (int j=0;j<obj.length;j++) {
 						p += String.valueOf(obj[j]);
 						if(j<obj.length-1){
@@ -214,10 +213,10 @@ public class DBOperator {
 	}
 
 	/**
-	 * ¶ÔÊı¾İ½øĞĞinsert¡¢update¡¢delete²Ù×÷
+	 * å¯¹æ•°æ®è¿›è¡Œinsertã€updateã€deleteæ“ä½œ
 	 * 
 	 * @param sql
-	 *            ²Ù×÷Óï¾ä
+	 *            æ“ä½œè¯­å¥
 	 * @return
 	 * @throws Exception
 	 */
@@ -245,13 +244,13 @@ public class DBOperator {
 	}
 
 	/**
-	 * Ìõ¼ş²ÎÊı¼ìÑé
+	 * æ¡ä»¶å‚æ•°æ£€éªŒ
 	 * 
 	 * @param sql
-	 *            Ô­À´µÄ×Ö·û´®
+	 *            åŸæ¥çš„å­—ç¬¦ä¸²
 	 * @param str
-	 *            ÆäÖĞ°üº¬µÄ×Ö·û´®
-	 * @return Ô­×Ö·û´Ó´®ÖĞ°üº¬µÄ×Ö·û´®µÄ¸öÊı
+	 *            å…¶ä¸­åŒ…å«çš„å­—ç¬¦ä¸²
+	 * @return åŸå­—ç¬¦ä»ä¸²ä¸­åŒ…å«çš„å­—ç¬¦ä¸²çš„ä¸ªæ•°
 	 */
 	private int getStrNum(String sql, String str) {
 		int num = 0;
@@ -324,7 +323,7 @@ public class DBOperator {
 				map.put(keyanme, rs.getClob(i));
 				break;
 			case Types.DATE:
-//				java.sql.Date sqlDate = rs.getDate(i);// ½«java.sql.Date×ªÎªjava.util.Date
+//				java.sql.Date sqlDate = rs.getDate(i);// å°†java.sql.Dateè½¬ä¸ºjava.util.Date
 //				if (sqlDate != null) {
 //					map.put(keyanme, new java.util.Date(sqlDate.getTime()));
 //				}
@@ -542,7 +541,7 @@ public class DBOperator {
 				break;
 			}
 
-		}// ÕâÀïÌí¼ÓÊÍ·ÅÓÎ±ê
+		}// è¿™é‡Œæ·»åŠ é‡Šæ”¾æ¸¸æ ‡
 		rs.close();
 		ps.close();
 		return list;
@@ -556,12 +555,12 @@ public class DBOperator {
 				"select t.table_name from dba_all_tables t where t.owner = ? order by t.table_name",
 				new Object[] { user });
 		while (rs.next()) {
-			System.out.println("±íÃû£º" + rs.getString(1).toLowerCase());
+			System.out.println("è¡¨åï¼š" + rs.getString(1).toLowerCase());
 			ResultSet resultset = select("select * from "
 					+ rs.getString(1).toLowerCase());
 			metaData = resultset.getMetaData();
 			int columnCount = metaData.getColumnCount();
-			System.out.println("ÊôĞÔĞÅÏ¢£º");
+			System.out.println("å±æ€§ä¿¡æ¯ï¼š");
 			for (int i = 1; i <= columnCount; i++) {
 				String columnname = metaData.getColumnName(i).toLowerCase();
 				int colType = metaData.getColumnType(i);
@@ -613,7 +612,7 @@ public class DBOperator {
 					break;
 				}
 			}
-			System.out.println("SQLÓï¾ä£º");
+			System.out.println("SQLè¯­å¥ï¼š");
 			System.out.println("select * from " + rs.getString(1).toLowerCase()
 					+ " t");
 			System.out.print("select ");
@@ -667,12 +666,12 @@ public class DBOperator {
 	 
 	public void glBatch(String sql,Object[][] params) throws Exception{
 		if(params==null||params.length==0){
-			throw new Exception("¶şÎ¬Êı×é²»ÄÜÎª¿Õ");
+			throw new Exception("äºŒç»´æ•°ç»„ä¸èƒ½ä¸ºç©º");
 		}
 		int length=getStrNum(sql, "?");
 		for(int i=0;i<params.length;i++){
 			if(length!=params[i].length){
-				throw new Exception("²ÎÊıÓë?¸öÊı²»Ò»ÖÂ");
+				throw new Exception("å‚æ•°ä¸?ä¸ªæ•°ä¸ä¸€è‡´");
 			}
 		}
 		ps=con.prepareStatement(sql);
@@ -692,7 +691,7 @@ public class DBOperator {
 				"select t.table_name from dba_all_tables t where t.owner = ? order by t.table_name",
 				new Object[] { user });
 		while (rs.next()) {
-			System.out.println("±íÃû£º" + rs.getString(1).toLowerCase());
+			System.out.println("è¡¨åï¼š" + rs.getString(1).toLowerCase());
 			String tableName=rs.getString(1).toLowerCase();
 			String className =tableName.replaceFirst(tableName.substring(0, 1),tableName.substring(0, 1).toUpperCase()) ;
 			System.out.println(className+" "+rs.getString(1).toLowerCase()+"= new "+className+"()");
@@ -700,7 +699,7 @@ public class DBOperator {
 					+ rs.getString(1).toLowerCase());
 			metaData = resultset.getMetaData();
 			int columnCount = metaData.getColumnCount();
-			System.out.println("ÊôĞÔĞÅÏ¢£º");
+			System.out.println("å±æ€§ä¿¡æ¯ï¼š");
 			for (int i = 1; i <= columnCount; i++) {
 				String columnname = metaData.getColumnName(i).toLowerCase();
 				String sxName =columnname.replaceFirst(columnname.substring(0, 1),columnname.substring(0, 1).toUpperCase()) ;
@@ -755,7 +754,7 @@ public class DBOperator {
 					break;
 				}
 			}
-			System.out.println("SQLÓï¾ä£º");
+			System.out.println("SQLè¯­å¥ï¼š");
 			System.out.println("select * from " + rs.getString(1).toLowerCase()
 					+ " t");
 			System.out.print("select ");
@@ -806,7 +805,7 @@ public class DBOperator {
 		}
 	}
 	/**
-	 * µ÷ÓÃ´æ´¢¹ı³ÌºÍº¯Êı
+	 * è°ƒç”¨å­˜å‚¨è¿‡ç¨‹å’Œå‡½æ•°
 	 * @param sql
 	 * @param params
 	 * @param types
@@ -818,7 +817,7 @@ public class DBOperator {
 			System.out.print(sql);
 			int i = 0;
 			if (params != null) {
-				System.out.print(" ²ÎÊıÖµ ");
+				System.out.print(" å‚æ•°å€¼ ");
 				for (Object obj : params) {
 					i++;
 					if (obj != null) {
@@ -836,11 +835,11 @@ public class DBOperator {
 		}
 		cst.execute();
 		cstOutSet(params, isOut);
-		cst.close();//¹Ø±Õ
+		cst.close();//å…³é—­
 	}
 	 
 	/**
-	 * È¡µÃ³ö²ÎµÄÖµ
+	 * å–å¾—å‡ºå‚çš„å€¼
 	 * @param params
 	 * @param types
 	 * @param isOut
@@ -874,7 +873,7 @@ public class DBOperator {
 	}
 
 	/**
-	 * Éè¶¨´æ´¢¹ı³ÌºÍº¯ÊıµÄ£¬Èë²ÎºÍ³ö²Î
+	 * è®¾å®šå­˜å‚¨è¿‡ç¨‹å’Œå‡½æ•°çš„ï¼Œå…¥å‚å’Œå‡ºå‚
 	 * @param params
 	 * @param types
 	 * @param isOut
