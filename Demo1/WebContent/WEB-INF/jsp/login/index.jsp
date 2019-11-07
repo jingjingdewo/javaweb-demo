@@ -63,8 +63,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					            data: data.field,
 					            type: "post",
 					            dataType: "json",
-					            success: function (data) {
-					            	if(data.code == 0){
+					            success: function (res) {
+					            	if(res.code == 0){
 					               		$("[lay-filter=login]").html("验证通过，正在跳转中...");
 					                       	window.setTimeout(function () {
 					                    		window.location.href = "index.htm";

@@ -147,7 +147,7 @@
 		                                    ids: ids
 		                                },
 		                                success: function (res) {
-		                                    if (res.code == 1) {
+		                                    if (res.code == 0) {
 		                                        table.reload('Tabel', {page: {page: 1}});
 		                                        layer.close(index);
 		                                    } else {
@@ -175,7 +175,7 @@
 		                            id: data.id
 		                        },
 		                        success: function (res) {
-		                            if (res.code == 1) {
+		                            if (res.code == 0) {
 		                                table.reload('Tabel', {page: {page: 1}});
 		                                layer.close(index);
 		                            } else {

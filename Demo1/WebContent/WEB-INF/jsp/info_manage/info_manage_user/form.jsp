@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -110,8 +110,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						type: "post",
 						async: false,
 						data: data.field,
-						success: function(data) {
-							if(data.code == 0) {
+						success: function(res) {
+							if(res.code == 0) {
 								parent.layer.msg(data.msg, {
 		                            time: 2000,
 		                            icon: 1
