@@ -80,7 +80,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<script>
 	        layui.use(['form','layer'], function(){
-	            $ = layui.jquery;
 	            var form = layui.form;
 	            var layer = layui.layer;
 	        
@@ -112,7 +111,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						async: false,
 						data: data.field,
 						success: function(data) {
-							if(data.code == 1) {
+							if(data.code == 0) {
 								parent.layer.msg(data.msg, {
 		                            time: 2000,
 		                            icon: 1

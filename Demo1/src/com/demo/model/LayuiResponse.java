@@ -54,7 +54,7 @@ public class LayuiResponse {
 	public void sendMsg(HttpServletResponse response, Boolean code, String msg) throws IOException {
 		JSONObject obj = new JSONObject();
 		int c=code?0:1;
-		obj.put("code", code);
+		obj.put("code", c);
 		obj.put("msg", msg);
 		response.setContentType("text/x-json;charset=UTF-8");
 		response.getWriter().write(obj.toString());

@@ -95,7 +95,7 @@ public class ManageUser {
 			JSONArray jsons = JSONArray.fromObject(list);
 			r.sendMsg(response, true, "获取数据成功", jsons, num);
 		}else{
-			r.sendMsg(response, false, "获取数据");
+			r.sendMsg(response, false, "获取数据失败");
 		}
 		
 	}
