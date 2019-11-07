@@ -112,7 +112,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						data: data.field,
 						success: function(res) {
 							if(res.code == 0) {
-								parent.layer.msg(data.msg, {
+								parent.layer.msg(res.msg, {
 		                            time: 2000,
 		                            icon: 1
 		                        });
@@ -120,7 +120,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								parent.layer.close(index);
 								parent.tabelModule.reload({});
 							}else {
-								parent.layer.msg(data.msg, {
+								parent.layer.msg(res.msg, {
 		                            time: 2000,
 		                            icon: 5
 		                        });

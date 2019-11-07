@@ -70,7 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					                    		window.location.href = "index.htm";
 					                       	}, 1000);
 										}else {
-					                   	layer.msg(data.msg,{icon: 5});
+					                   	layer.msg(res.msg,{icon: 5});
 					               		$("[lay-filter=login]").removeAttr("disabled","disabled");
 					               		$("[lay-filter=login]").html("登录");
 									}
