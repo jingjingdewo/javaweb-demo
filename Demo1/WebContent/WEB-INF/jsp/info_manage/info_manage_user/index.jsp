@@ -92,6 +92,7 @@
 		            id: 'Tabel',
 		            height: 'full-160',
 		            url: 'ManageUser/table.htm', //数据接口
+		            method: 'post',
 		            page: true, //开启分页
 		            toolbar: '#toolBar',	//左侧按钮
 		            //defaultToolbar:[],    //右侧筛选/导出/打印图标
