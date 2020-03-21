@@ -8,10 +8,11 @@
 
 2.配置好tomact，将工程add到tomact中  
 
-3.在mysql中create名为demo的数据库，导入demo.sql文件  
+3.在mysql中create名为demo的数据库，导入demo.sql文件，右键表->设计表->每个字段的注解都写了，方便理解  
 
 4.启动tomact，在浏览器中输入http://localhost:8080/Demo1, 即可进入登录页面，用户名:admin,密码:admin  
 
+5.前端layui开发文档：https://www.layui.com/doc/   （参考demo,需要什么就去网站上复制什么就好了，基本没难度）
 登录界面效果图：  
 ![login](https://github.com/jingjingdewo/javaweb-demo/blob/master/LoginPage.png?raw=true)
 
